@@ -1,1 +1,420 @@
-<h1>Hello, winnie here...</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Winnie Si | Portfolio</title>
+    <!-- Tailwind CSS for styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Phosphor Icons for modern iconography -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <!-- Google Fonts: Inter for that clean "Apple" look -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        'apple-grey': '#1d1d1f',
+                        'glass-border': 'rgba(255, 255, 255, 0.1)',
+                        'accent-pink': '#FFB6C1', // Light pink as requested
+                        'accent-pink-hover': '#FF9EAB',
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'fade-in': 'fadeIn 0.8s ease-out forwards',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        },
+                        fadeIn: {
+                            '0%': { opacity: '0', transform: 'translateY(10px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background: linear-gradient(135deg, #1a1a1a 0%, #4a4a4a 100%);
+            min-height: 100vh;
+            color: #f5f5f7;
+            overflow-x: hidden;
+        }
+
+        /* The Apple-style Glassmorphism Card */
+        .glass-card {
+            background: rgba(30, 30, 30, 0.6);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .glass-card:hover {
+            background: rgba(40, 40, 40, 0.7);
+            transform: translateY(-5px);
+            border-color: rgba(255, 182, 193, 0.3); /* Pink hint on hover */
+            box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.4);
+        }
+
+        /* Floating background orbs for depth */
+        .orb {
+            position: fixed;
+            border-radius: 50%;
+            filter: blur(80px);
+            z-index: -1;
+            opacity: 0.4;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #1a1a1a;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #4a4a4a;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #FFB6C1;
+        }
+        
+        .nav-link {
+            position: relative;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: #FFB6C1;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+    </style>
+</head>
+<body class="font-sans antialiased selection:bg-accent-pink selection:text-black">
+
+    <!-- Background Orbs -->
+    <div class="orb w-96 h-96 bg-gray-600 top-0 left-0 animate-float"></div>
+    <div class="orb w-80 h-80 bg-black bottom-0 right-0 animate-float" style="animation-delay: 2s;"></div>
+    <div class="orb w-64 h-64 bg-accent-pink top-1/2 left-1/2 opacity-10 animate-float" style="animation-delay: 4s;"></div>
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 transition-all duration-300" id="navbar">
+        <div class="glass-card !bg-opacity-80 !backdrop-blur-md !border-none !rounded-none">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex items-center justify-between h-16">
+                    <div class="flex-shrink-0">
+                        <span class="text-xl font-bold tracking-tight text-white">Winnie<span class="text-accent-pink">.</span>Si</span>
+                    </div>
+                    <div class="hidden md:block">
+                        <div class="ml-10 flex items-baseline space-x-8">
+                            <a href="#home" class="nav-link text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors">Home</a>
+                            <a href="#experience" class="nav-link text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors">Experience</a>
+                            <a href="#skills" class="nav-link text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors">Skills</a>
+                            <a href="#contact" class="px-4 py-2 rounded-full bg-accent-pink text-black text-sm font-semibold hover:bg-accent-pink-hover transition-colors shadow-lg">Contact Me</a>
+                        </div>
+                    </div>
+                    <!-- Mobile menu button -->
+                    <div class="-mr-2 flex md:hidden">
+                        <button type="button" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none">
+                            <i class="ph ph-list text-2xl"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div class="hidden md:hidden glass-card absolute w-full" id="mobile-menu">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#home" class="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Home</a>
+                <a href="#experience" class="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Experience</a>
+                <a href="#skills" class="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Skills</a>
+                <a href="#contact" class="text-accent-pink block px-3 py-2 rounded-md text-base font-medium">Contact Me</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen flex items-center justify-center pt-16 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center">
+            <div class="md:w-1/2 text-center md:text-left mb-10 md:mb-0 animate-fade-in">
+                <div class="inline-block px-3 py-1 mb-4 text-xs font-semibold tracking-wider text-accent-pink uppercase bg-white/10 rounded-full">
+                    Available for Hire
+                </div>
+                <h1 class="text-5xl md:text-7xl font-bold tracking-tight mb-6 text-white">
+                    Building <span class="text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-500">Robust</span> Systems.
+                </h1>
+                <p class="text-lg text-gray-400 mb-8 max-w-lg mx-auto md:mx-0 leading-relaxed">
+                    Hi, I'm <span class="text-white font-semibold">Winnie Si</span>. An IT professional specializing in full-stack development, BMS customization, and accounting system support based in Miri, Sarawak.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+                    <a href="#experience" class="px-8 py-3 rounded-full bg-white text-black font-semibold hover:bg-gray-200 transition-colors shadow-[0_0_20px_rgba(255,255,255,0.3)]">
+                        View My Work
+                    </a>
+                    <a href="mailto:winnie.siwy1212@gmail.com" class="px-8 py-3 rounded-full border border-gray-500 text-white font-semibold hover:bg-white/10 hover:border-white transition-colors">
+                        Get in Touch
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Hero Card Visual -->
+            <div class="md:w-1/2 flex justify-center perspective-1000 animate-fade-in" style="animation-delay: 0.2s;">
+                <div class="glass-card w-80 h-96 rounded-2xl p-6 relative transform rotate-y-12 hover:rotate-0 transition-transform duration-500">
+                    <div class="absolute top-4 right-4 w-3 h-3 bg-red-500 rounded-full"></div>
+                    <div class="absolute top-4 right-8 w-3 h-3 bg-yellow-500 rounded-full"></div>
+                    <div class="absolute top-4 right-12 w-3 h-3 bg-green-500 rounded-full"></div>
+                    
+                    <div class="mt-8 space-y-4">
+                        <div class="h-2 w-1/2 bg-gray-600 rounded opacity-50"></div>
+                        <div class="h-24 w-full bg-gray-700/50 rounded-lg backdrop-blur-sm border border-white/5 p-3">
+                            <div class="text-xs text-accent-pink font-mono mb-2">&lt;code&gt;</div>
+                            <div class="text-xs text-gray-400 font-mono">
+                                BMS.init();<br>
+                                PaymentGateway.connect('Fiuu');<br>
+                                Invoice.sync();
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-2 gap-2">
+                            <div class="h-20 bg-gray-700/30 rounded-lg border border-white/5"></div>
+                            <div class="h-20 bg-gray-700/30 rounded-lg border border-white/5"></div>
+                        </div>
+                    </div>
+
+                    <div class="absolute bottom-6 left-6">
+                        <p class="text-sm font-semibold text-white">Majestic BMS</p>
+                        <p class="text-xs text-gray-400">Backend System</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section (Dynamic Content) -->
+    <section id="experience" class="py-20 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Work Experience</h2>
+                <div class="h-1 w-20 bg-accent-pink mx-auto rounded-full"></div>
+                <p class="mt-4 text-gray-400">My professional journey in development and support.</p>
+            </div>
+
+            <div id="experience-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Content injected via JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 relative bg-black/20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="glass-card rounded-3xl p-8 md:p-12">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <h2 class="text-3xl font-bold text-white mb-6">Technical Arsenal</h2>
+                        <p class="text-gray-400 mb-8 leading-relaxed">
+                            I combine strong backend logic with functional frontend design. My experience ranges from building custom booking engines to troubleshooting complex accounting software SQL databases.
+                        </p>
+                        
+                        <div class="space-y-6">
+                            <!-- Skill Bars -->
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span class="text-sm font-medium text-white">PHP & MySQL</span>
+                                    <span class="text-sm font-medium text-accent-pink">Advanced</span>
+                                </div>
+                                <div class="w-full bg-gray-700 rounded-full h-2">
+                                    <div class="bg-white h-2 rounded-full" style="width: 90%"></div>
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span class="text-sm font-medium text-white">JavaScript (Vanilla, jQuery)</span>
+                                    <span class="text-sm font-medium text-accent-pink">Intermediate</span>
+                                </div>
+                                <div class="w-full bg-gray-700 rounded-full h-2">
+                                    <div class="bg-white h-2 rounded-full" style="width: 75%"></div>
+                                </div>
+                            </div>
+
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span class="text-sm font-medium text-white">System Support & Accounting</span>
+                                    <span class="text-sm font-medium text-accent-pink">Experienced</span>
+                                </div>
+                                <div class="w-full bg-gray-700 rounded-full h-2">
+                                    <div class="bg-white h-2 rounded-full" style="width: 85%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tags Cloud -->
+                    <div class="flex flex-wrap gap-3 content-start">
+                        <span class="px-4 py-2 glass-card rounded-lg text-sm text-gray-300 border border-white/10 hover:border-accent-pink/50 transition-colors cursor-default">HTML5</span>
+                        <span class="px-4 py-2 glass-card rounded-lg text-sm text-gray-300 border border-white/10 hover:border-accent-pink/50 transition-colors cursor-default">CSS3 / SCSS</span>
+                        <span class="px-4 py-2 glass-card rounded-lg text-sm text-gray-300 border border-white/10 hover:border-accent-pink/50 transition-colors cursor-default">Java</span>
+                        <span class="px-4 py-2 glass-card rounded-lg text-sm text-gray-300 border border-white/10 hover:border-accent-pink/50 transition-colors cursor-default">SQL Accounting System</span>
+                        <span class="px-4 py-2 glass-card rounded-lg text-sm text-gray-300 border border-white/10 hover:border-accent-pink/50 transition-colors cursor-default">Figma</span>
+                        <span class="px-4 py-2 glass-card rounded-lg text-sm text-gray-300 border border-white/10 hover:border-accent-pink/50 transition-colors cursor-default">WordPress</span>
+                        <span class="px-4 py-2 glass-card rounded-lg text-sm text-gray-300 border border-white/10 hover:border-accent-pink/50 transition-colors cursor-default">Fiuu Gateway</span>
+                        <span class="px-4 py-2 glass-card rounded-lg text-sm text-gray-300 border border-white/10 hover:border-accent-pink/50 transition-colors cursor-default">VS Code</span>
+                        <span class="px-4 py-2 glass-card rounded-lg text-sm text-gray-300 border border-white/10 hover:border-accent-pink/50 transition-colors cursor-default">cPanel</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 relative">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl font-bold text-white mb-8">Let's Work Together</h2>
+            
+            <div class="glass-card rounded-2xl p-8 transform transition-all hover:scale-[1.02]">
+                <form class="space-y-6" onsubmit="event.preventDefault(); alert('Thank you! This is a demo form.');">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="text-left">
+                            <label class="block text-xs font-medium text-gray-400 mb-2 uppercase tracking-wide">Name</label>
+                            <input type="text" class="w-full bg-black/20 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-accent-pink transition-colors" placeholder="Your Name">
+                        </div>
+                        <div class="text-left">
+                            <label class="block text-xs font-medium text-gray-400 mb-2 uppercase tracking-wide">Email</label>
+                            <input type="email" class="w-full bg-black/20 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-accent-pink transition-colors" placeholder="email@example.com">
+                        </div>
+                    </div>
+                    <div class="text-left">
+                        <label class="block text-xs font-medium text-gray-400 mb-2 uppercase tracking-wide">Message</label>
+                        <textarea rows="4" class="w-full bg-black/20 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-accent-pink transition-colors" placeholder="Tell me about your project..."></textarea>
+                    </div>
+                    <button type="submit" class="w-full bg-white text-black font-bold py-3 rounded-lg hover:bg-accent-pink transition-colors shadow-lg">
+                        Send Message
+                    </button>
+                </form>
+                
+                <div class="mt-8 pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center text-sm text-gray-400">
+                    <div class="flex items-center gap-2 mb-4 md:mb-0">
+                        <i class="ph ph-envelope-simple text-xl text-accent-pink"></i>
+                        winnie.siwy1212@gmail.com
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <i class="ph ph-map-pin text-xl text-accent-pink"></i>
+                        Miri, Sarawak
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 text-center text-gray-500 text-sm">
+        <p>&copy; 2025 Winnie Si Wan Yin. All rights reserved.</p>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Data mimicking a database fetch
+        const experienceData = [
+            {
+                company: "Majestic Leisure & Tours",
+                role: "Web Maintainer (WFH)",
+                date: "Apr 2025 - Present",
+                description: "Maintained and updated websites and booking management web applications. Focused on troubleshooting and optimizing for performance.",
+                highlight: "System Optimization",
+                icon: "ph-globe"
+            },
+            {
+                company: "Everest Business Software",
+                role: "Junior Software Support",
+                date: "Apr 2025 - Jul 2025",
+                description: "Provided technical support for SQL-based accounting systems. Learned extensively about Accounts, E-Invoice systems, and client troubleshooting.",
+                highlight: "E-Invoice & Accounting",
+                icon: "ph-database"
+            },
+            {
+                company: "Majestic Leisure & Tours",
+                role: "IT System Administrator",
+                date: "Aug 2024 - Apr 2025",
+                description: "Managed the Backend Booking Management System. Integrated Fiuu Payment Gateway for secure payments (e-wallets, FPX, DuitNow QR).",
+                highlight: "Fiuu Payment Integration",
+                icon: "ph-credit-card"
+            },
+            {
+                company: "Unison Studio",
+                role: "Junior Programmer (Intern)",
+                date: "May 2024 - Aug 2024",
+                description: "Developed the core Backend BMS system later adopted by Majestic. Created an online wholesale agent portal for price list management.",
+                highlight: "BMS Development",
+                icon: "ph-code"
+            }
+        ];
+
+        // Function to render cards dynamically
+        function renderExperience() {
+            const container = document.getElementById('experience-container');
+            
+            experienceData.forEach((job, index) => {
+                const card = document.createElement('div');
+                card.className = `glass-card rounded-2xl p-6 flex flex-col h-full transform transition-all duration-500 hover:-translate-y-2 opacity-0 animate-fade-in`;
+                card.style.animationDelay = `${index * 0.15}s`; // Staggered animation
+                
+                card.innerHTML = `
+                    <div class="flex items-start justify-between mb-4">
+                        <div class="p-3 bg-white/5 rounded-lg">
+                            <i class="ph ${job.icon} text-2xl text-accent-pink"></i>
+                        </div>
+                        <span class="text-xs font-mono text-gray-500 border border-gray-700 px-2 py-1 rounded">${job.date}</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-1">${job.role}</h3>
+                    <p class="text-sm text-accent-pink mb-4 font-medium">${job.company}</p>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-6 flex-grow">
+                        ${job.description}
+                    </p>
+                    <div class="mt-auto pt-4 border-t border-white/5">
+                        <span class="text-xs font-semibold text-gray-300 uppercase tracking-wider">Key Achievement</span>
+                        <p class="text-white text-sm mt-1">${job.highlight}</p>
+                    </div>
+                `;
+                
+                container.appendChild(card);
+            });
+        }
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', () => {
+            renderExperience();
+
+            // Navbar scroll effect
+            window.addEventListener('scroll', () => {
+                const nav = document.getElementById('navbar');
+                if (window.scrollY > 50) {
+                    nav.classList.add('shadow-lg');
+                } else {
+                    nav.classList.remove('shadow-lg');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
