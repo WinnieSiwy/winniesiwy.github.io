@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Winnie Si | Portfolio</title>
+    <title>WinnieSWY | Portfolio</title>
     <!-- Tailwind CSS for styling -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Phosphor Icons for modern iconography -->
@@ -27,6 +27,7 @@
                     animation: {
                         'float': 'float 6s ease-in-out infinite',
                         'fade-in': 'fadeIn 0.8s ease-out forwards',
+                        'sparkle': 'sparkle 1.5s ease-in-out infinite',
                     },
                     keyframes: {
                         float: {
@@ -36,6 +37,10 @@
                         fadeIn: {
                             '0%': { opacity: '0', transform: 'translateY(10px)' },
                             '100%': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                        sparkle: {
+                            '0%, 100%': { opacity: '0.4', transform: 'scale(1)' },
+                            '50%': { opacity: '1', transform: 'scale(1.2)' },
                         }
                     }
                 }
@@ -49,6 +54,7 @@
             min-height: 100vh;
             color: #f5f5f7;
             overflow-x: hidden;
+            cursor: none; /* Hide default cursor to use custom cat paw */
         }
 
         /* The Apple-style Glassmorphism Card */
@@ -143,6 +149,19 @@
     </style>
 </head>
 <body class="font-sans antialiased selection:bg-accent-pink selection:text-black">
+    <!-- Custom Cursor (Cat Paw) -->
+    <div id="cursor-paw">
+        <svg viewBox="0 0 24 24" fill="#FFB6C1" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="12" cy="14" r="5" />
+            <circle cx="6" cy="7" r="3" />
+            <circle cx="12" cy="5" r="3" />
+            <circle cx="18" cy="7" r="3" />
+        </svg>
+    </div>
+
+    <!-- Background Orbs -->
+    <div class="orb w-96 h-96 bg-gray-800 top-0 left-0 animate-float"></div>
+    <div class="orb w-64 h-64 bg-accent-pink/10 bottom-0 right-0 animate-float" style="animation-delay: 2s;"></div>
 
     <!-- Background Orbs -->
     <div class="orb w-96 h-96 bg-gray-600 top-0 left-0 animate-float"></div>
