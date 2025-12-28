@@ -77,6 +77,36 @@
             opacity: 0.4;
         }
 
+        /* Custom Cursor Style */
+        #cursor-paw {
+            position: fixed;
+            width: 24px;
+            height: 24px;
+            pointer-events: none;
+            z-index: 9999;
+            transform: translate(-50%, -50%);
+            transition: transform 0.1s ease-out;
+        }
+
+        .sparkle-dot {
+            position: fixed;
+            width: 4px;
+            height: 4px;
+            background: #FFB6C1;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 9998;
+            opacity: 0;
+        }
+
+        .orb {
+            position: fixed;
+            border-radius: 50%;
+            filter: blur(100px);
+            z-index: -1;
+            opacity: 0.2;
+        }
+
         /* Custom Scrollbar */
         ::-webkit-scrollbar {
             width: 8px;
@@ -125,7 +155,7 @@
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex items-center justify-between h-16">
                     <div class="flex-shrink-0">
-                        <span class="text-xl font-bold tracking-tight text-white">Winnie<span class="text-accent-pink">.</span>Si</span>
+                        <span class="text-xl font-bold tracking-tight text-white">Winnie<span class="text-accent-pink">.</span>SiWY</span>
                     </div>
                     <div class="hidden md:block">
                         <div class="ml-10 flex items-baseline space-x-8">
