@@ -125,9 +125,9 @@
                     <a href="#experience" class="px-8 py-3 rounded-full bg-white text-black font-semibold hover:bg-gray-200 transition-colors shadow-[0_0_20px_rgba(255,255,255,0.3)]">
                         View My Work
                     </a>
-                    <a href="mailto:winnie.swy1212@gmail.com" class="px-8 py-3 rounded-full border border-gray-500 text-white font-semibold hover:bg-white/10 hover:border-white transition-colors">
+                    <!-- <a href="mailto:winnie.swy1212@gmail.com" class="px-8 py-3 rounded-full border border-gray-500 text-white font-semibold hover:bg-white/10 hover:border-white transition-colors">
                         Get in Touch
-                    </a>
+                    </a> -->
                 </div>
             </div>
             
@@ -212,36 +212,51 @@
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="mt-20">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="glass-card rounded-3xl p-8 md:p-12">
-                <div class="text-center max-w-2xl mx-auto">
-                    <h2 class="text-3xl font-bold text-white mb-4">Get In Touch</h2>
-                    <p class="text-gray-400 mb-8 leading-relaxed">
-                        I'm always open to discussing new projects, learning opportunities, or potential collaborations.
-                        Feel free to reach out if you'd like to connect.
-                    </p>
+    <section id="contact" class="contact-section">
+    <div class="container">
+        <h2 class="section-title">Get In Touch</h2>
+        <p class="section-subtitle">Have a project in mind or want to discuss a role? Let's connect!</p>
 
-                    <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-                        <a href="mailto:winnie.swy1212@gmail.com"
-                        class="px-6 py-3 rounded-xl bg-accent-pink/90 text-white font-medium hover:bg-accent-pink transition-colors">
-                            Email Me
-                        </a>
-
-                        <a href="https://www.linkedin.com"
-                        target="_blank"
-                        class="px-6 py-3 rounded-xl border border-white/10 text-gray-200 hover:border-accent-pink/40 hover:text-white transition-colors">
-                            LinkedIn
-                        </a>
+        <div class="contact-wrapper">
+            <div class="contact-info">
+                <div class="info-item">
+                    <i class="fas fa-envelope"></i>
+                    <div>
+                        <h3>Email</h3>
+                        <p>winnie.swy1212@gmail.com</p>
                     </div>
-
-                    <div class="mt-6 text-sm text-gray-500">
-                        <p>📧 winnie.swy1212@gmail.com</p>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-phone"></i>
+                    <div>
+                        <h3>Phone</h3>
+                        <p>011-6286 1321</p>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <div>
+                        <h3>Location</h3>
+                        <p>Miri, Sarawak</p>
                     </div>
                 </div>
             </div>
+
+            <form action="contact_process.php" method="POST" class="contact-form">
+                <div class="form-group">
+                    <input type="text" name="name" placeholder="Your Name" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" name="email" placeholder="Your Email" required>
+                </div>
+                <div class="form-group">
+                    <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+                </div>
+                <button type="submit" class="btn-submit">Send Message</button>
+            </form>
         </div>
-    </section>
+    </div>
+</section>
 
 
     <!-- Footer -->
